@@ -32,7 +32,7 @@ TabPanel.propTypes = {
     value: PropTypes.number.isRequired,
 };
 
-export default function AuthPage() {
+export default function AuthPage({loginStatus, handleLogout, handleLogin}) {
     const [value, setValue] = useState(0);
 
     const handleChange = (event, newValue) => {
@@ -72,7 +72,7 @@ export default function AuthPage() {
                     <Tab id="signUpTabButton" label="Sign Up" {...a11yProps(1)} />
                 </Tabs>
                 <TabPanel value={value} index={0}>
-                    <LoginForm />
+                    <LoginForm loginStatus={loginStatus} handleLogout={handleLogout} handleLogin={handleLogin}/>
                 </TabPanel>
                 <TabPanel value={value} index={1}>
                     <SignupForm />
